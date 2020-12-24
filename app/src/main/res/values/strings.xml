@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">QuakeInfo</string>
+
+    <string name="earthquake">Earthquakes</string>
+    <string name="tsuanmi">Tsunami</string>
+    <string name="flood">Floods</string>
+    <string name="landslide">Landslides</string>
+
+    <string name="error">Failed to fetch data !!! Please try again.</string>
+
 </resources>
