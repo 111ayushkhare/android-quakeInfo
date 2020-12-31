@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         mInitLayout = (LinearLayout) findViewById(R.id.initLayout);
         mEarthquakesButton = (Button) findViewById(R.id.earthquakeButton);
-        mEarthquakesButton = (Button) findViewById(R.id.tsunamiButton);
-        mEarthquakesButton = (Button) findViewById(R.id.floodButton);
-        mEarthquakesButton = (Button) findViewById(R.id.landslidesButton);
+        mTsunamiButton = (Button) findViewById(R.id.tsunamiButton);
+        mFloodsButton = (Button) findViewById(R.id.floodButton);
+        mLandslidesButton = (Button) findViewById(R.id.landslidesButton);
         mErrorMessageDisplay = (TextView) findViewById(R.id.errorMessageView);
         mLoadingIndicator = (ProgressBar) findViewById(R.id.loadingIndicator);
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    protected void makeEarthquakeQuery() {
+    private void makeEarthquakeQuery() {
         URL url = Network.buildUrl();
         new QuakeQuery().execute(url);
     }
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    protected void getLocationInfo() {
+    private void getLocationInfo() {
         mEarthquakesButton.setOnClickListener(view -> {
             makeEarthquakeQuery();
         });

@@ -1,9 +1,12 @@
 package com.example.quakeinfo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -17,11 +20,17 @@ public class EarthquakeActivity extends AppCompatActivity {
 
     private ListView mQuakeListView;
     private ArrayList<Earthquake> mQuake;
+    private RecyclerView mRecyclerView;
+    private RecyclerViewAdapter mRecyclerViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_earthquake);
+
+        mRecyclerView = findViewById(R.id.rv_earthquakes);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mQuake = new ArrayList<Earthquake>();
 //        mQuake.add(new Earthquake("Humayi", "Tokyo Japan", "url", "url detail", 6.9, 876534567));
@@ -35,7 +44,7 @@ public class EarthquakeActivity extends AppCompatActivity {
 //        mQuake.add(new Earthquake("Humayi", "Tokyo Japan", "url", "url detail", 6.9, 876534567));
 //        mQuake.add(new Earthquake("Humayi", "Tokyo Japan", "url", "url detail", 6.9, 876534567));
 
-        mQuakeListView = findViewById(R.id.quakeList);
+//        mQuakeListView = findViewById(R.id.quakeList);
 
         String response = getIntent().getStringExtra(Intent.EXTRA_TEXT);
 
@@ -62,10 +71,13 @@ public class EarthquakeActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        displayEarthquakes();
     }
 
     protected void displayEarthquakes() {
-
+        mRecyclerViewAdapter = new RecyclerViewAdapter(EarthquakeActivity.this, mQuake);
+        mRecyclerView.setAdapter(mRecyclerViewAdapter);
     }
 
 

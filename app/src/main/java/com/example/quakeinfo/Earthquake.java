@@ -1,5 +1,7 @@
 package com.example.quakeinfo;
 
+import java.text.DecimalFormat;
+
 public class Earthquake {
     private String mQuakeTitle;
     private String mQuakeLocation;
@@ -34,8 +36,9 @@ public class Earthquake {
         return mQuakeDetail;
     }
 
-    public double getmQuakeMagnitude() {
-        return mQuakeMagnitude;
+    public String getmQuakeMagnitude() {
+        DecimalFormat magnitudeFormat = new DecimalFormat("0.0");
+        return magnitudeFormat.format(mQuakeMagnitude);
     }
 
     public long getmQuakeTime() {
