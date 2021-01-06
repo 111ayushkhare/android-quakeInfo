@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -61,18 +62,19 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mInitLayout.setVisibility(View.INVISIBLE);
+            mInitLayout.setVisibility(View.GONE);
             mLoadingIndicator.setVisibility(View.VISIBLE);
         }
 
         @Override
         protected String doInBackground(URL... urls) {
-            URL url = urls[0];
             String jsonStringResponse = null;
-            try {
-                jsonStringResponse = Network.getResponseFromHttpRequest(url);
-            } catch (IOException e) {
-                e.printStackTrace();
+            for (URL url : urls) {
+                try {
+                    jsonStringResponse = Network.getResponseFromHttpRequest(url);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
             return jsonStringResponse;
         }
@@ -80,9 +82,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             mLoadingIndicator.setVisibility(View.GONE);
+            Log.d("r",s);
             if (s != null && !s.equals("")) {
-                Intent intent = new Intent(MainActivity.this, EarthquakeActivity.class);
-                intent.putExtra("response", s);
+                Intent intent = new Intent(MainActivity.this, QuakeActivity.class);
+                intent.putExtra("HTTP Response", s);
                 startActivity(intent);
             } else {
                 mErrorMessageDisplay.setVisibility(View.VISIBLE);
@@ -94,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
     private void getLocationInfo() {
         mEarthquakesButton.setOnClickListener(view -> {
             makeEarthquakeQuery();
+            //startActivity(new Intent(MainActivity.this, QuakeActivity.class));
         });
     }
 
