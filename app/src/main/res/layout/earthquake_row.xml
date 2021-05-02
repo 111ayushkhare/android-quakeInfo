@@ -3,63 +3,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:orientation="horizontal">
-
-    <TextView
-        android:id="@+id/quakeMagnitude"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        tools:text="6.9"/>
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/quakeLocation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_margin="8dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_marginStart="4dp"
+        android:orientation="horizontal"
+        android:padding="8dp">
 
         <TextView
-            android:id="@+id/locationOffset"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="Shahdol"/>
+            android:id="@+id/quakeMagnitude"
+            style="@style/text_style"
+            android:layout_width="48sp"
+            android:layout_height="48sp"
+            android:layout_gravity="center"
+            android:background="@drawable/magnitude_circle"
+            android:gravity="center"
+            android:textStyle="bold"
+            tools:text="6.9" />
 
-        <TextView
-            android:id="@+id/primaryLocation"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/quakeLocation"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="Burhar Chowk"/>
+            android:layout_margin="8dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/locationOffset"
+                style="@style/text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                tools:text="Shahdol" />
+
+            <TextView
+                android:id="@+id/primaryLocation"
+                style="@style/text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                tools:text="Burhar Chowk" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/quakeMoment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/quakeDate"
+                style="@style/text_style"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                tools:text="06-Jan-2021" />
+
+            <TextView
+                android:id="@+id/quakeTime"
+                style="@style/text_style"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                tools:text="12:00:00" />
+
+        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/quakeMoment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/quakeDate"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            tools:text="06-Jan-2021"/>
-
-        <TextView
-            android:id="@+id/quakeTime"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            tools:text="12:00:00"/>
-
-    </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/darker_gray" />
 
 
 </LinearLayout>

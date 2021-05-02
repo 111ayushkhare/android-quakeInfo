@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="text_style">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/app_bar</item>
+    </style>
+</resources>
