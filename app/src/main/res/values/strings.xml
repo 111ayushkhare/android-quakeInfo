@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">QuakeInfo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="earthquake">Get Earthquake Info</string>
+    <string name="fragment_overview_title">Earthquakes Overview</string>
+    <string name="fragment_detail_title">Earthquake Detail</string>
 
-    <string name="error">Failed to fetch data !!! Please try again.</string>
-
+    <string name="select_range_txt">Select magnitude range</string>
+    <string name="fetch_btn_txt">Earthquakes</string>
+    <string name="total_quakes_txt">Total Earthquakes Found</string>
 </resources>

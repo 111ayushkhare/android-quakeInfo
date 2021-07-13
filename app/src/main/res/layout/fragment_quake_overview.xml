@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="overviewViewModel"
+            type="com.example.quakeinfo.screens.quakeoverview.QuakeOverviewViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorOverviewBackground"
+        android:orientation="vertical"
+        tools:context=".screens.quakeoverview.QuakeOverviewFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/mako_regular"
+                android:text="@string/select_range_txt"
+                android:textColor="@color/colorSelectMagnitudeTxt"
+                android:textSize="20sp" />
+
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/magnitude_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:valueFrom="1.0"
+                android:valueTo="10.0"
+                app:haloColor="@color/colorSliderHalo"
+                app:thumbColor="@color/colorSliderThumb"
+                app:thumbElevation="4dp"
+                app:thumbRadius="8dp"
+                app:trackColorActive="@color/colorSliderTrackActive"
+                app:trackColorInactive="@color/colorSliderTrackInactive"
+                app:trackHeight="2dp"
+                app:values="@array/initial_slider_values" />
+
+            <Button
+                android:id="@+id/fetch_info_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/fetch_button"
+                android:elevation="8dp"
+                android:fontFamily="@font/mako_regular"
+                android:text="@string/fetch_btn_txt"
+                android:textColor="@color/colorEarthquakeFetchBtnTxt"
+                app:backgroundTint="@color/colorEarthquakeFetchBtn" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorTotalQuakesTxtBackground"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/mako_regular"
+                    android:padding="8dp"
+                    android:text="@string/total_quakes_txt"
+                    android:textColor="@color/colorTotalQuakesTxt"
+                    android:textSize="16sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center"
+                android:background="@color/colorTotalQuakesSeparatorViewDesign" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorTotalQuakesTxtBackground"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:id="@+id/total_quake_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/mako_regular"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@{overviewViewModel.quakeResponseCount}"
+                    android:textColor="@color/colorTotalQuakesTxt"
+                    android:textSize="16sp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:id="@+id/empty_list_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="64dp"
+                android:gravity="center"
+                android:visibility="@{overviewViewModel.statusInfoVisibility}">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="4dp"
+                    android:src="@drawable/empty_list" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{overviewViewModel.statusMessage}"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{overviewViewModel.progressBarVisibility}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/overview_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:visibility="@{overviewViewModel.rvVisibility}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

@@ -4,32 +4,32 @@
     <color name="primaryColor">#011a27</color>
     <color name="primaryLightColor">#2a404f</color>
     <color name="primaryDarkColor">#000000</color>
-    <color name="secondaryColor">#063852</color>
-    <color name="secondaryLightColor">#3b627e</color>
-    <color name="secondaryDarkColor">#001229</color>
-    <color name="primaryTextColor">@color/secondaryColor</color>
-    <color name="secondaryTextColor">#ffffff</color>
+    <color name="secondaryColor">#e6df44</color>
+    <color name="secondaryLightColor">#ffff78</color>
+    <color name="secondaryDarkColor">#b1ad00</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#000000</color>
 
     <!--    Quake Overview elements-->
-    <color name="colorOverviewBackground">#f1f3ce</color>
+    <color name="colorOverviewBackground">#063852</color>
 
-    <color name="colorSelectMagnitudeTxt">@color/primaryTextColor</color>
+    <color name="colorSelectMagnitudeTxt">#ffffff</color>
 
     <color name="colorSliderThumb">@color/secondaryColor</color>
     <color name="colorSliderHalo">#ffffff</color>
     <color name="colorSliderTrackActive">@color/secondaryLightColor</color>
-    <color name="colorSliderTrackInactive">#bdbdbd</color>
+    <color name="colorSliderTrackInactive">#ffffff</color>
 
     <color name="colorEarthquakeFetchBtn">@color/secondaryColor</color>
     <color name="colorEarthquakeFetchBtnTxt">@color/secondaryTextColor</color>
 
-    <color name="colorTotalQuakesTxt">@color/secondaryColor</color>
+    <color name="colorTotalQuakesTxt">@color/secondaryTextColor</color>
     <color name="colorTotalQuakesTxtBackground">#f0810f</color>
     <color name="colorTotalQuakesSeparatorViewDesign">@color/colorTotalQuakesTxtBackground</color>
 
     <color name="colorQuakeItemCard">#fcfdfe</color>
     <color name="colorQuakeMagnitude">#f0810f</color>
-    <color name="colorQuakeLocationHeading">@color/primaryColor</color>
+    <color name="colorQuakeLocationHeading">@color/colorOverviewBackground</color>
     <color name="colorQuakeTime">#757575</color>
 
 </resources>
