@@ -7,7 +7,6 @@
 * Fetching the earthquake data is done in a background thread without blocking the UI thread with help of **Kotlin-Coroutines**. 
 * The app uses **Retrofit-library** for calling and setting up the API service and **Moshi-converter** for decoding the fetched the **JSON data**. 
 * The fetched data is displayed in a **Recycler view** where each item is **card view** conatining Magnitude, Location, Date and Time of the earthquake.
-* The app has two fragments - Earthquake Overview Fragment & Earthquake Detail Fragment (left). Navigation between these two fragmets is done by implementing **Android's Jetpack Navigation**.
 * Different color schemes for light and dark themes.
 
 ## Demo of app working
@@ -16,9 +15,9 @@
 <br />
 
 <p>
-  <img src="https://user-images.githubusercontent.com/46900324/125501799-f51ff574-6363-4045-afe8-ee7e401160fe.gif" width="300" height="600" />
+  <img src="https://user-images.githubusercontent.com/46900324/144237780-690c3ec0-8674-49f1-8a73-6cdec6dd02ed.gif" width="300" height="600" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://user-images.githubusercontent.com/46900324/125501909-ff89c339-c868-4501-ad60-18e8964f64ef.gif" width="300" height="600" /> 
+  <img src="https://user-images.githubusercontent.com/46900324/144237233-217bfade-d9c2-4471-8548-0b4e8d9604cd.gif" width="300" height="600" /> 
 </p>
 
 ## Data Source
